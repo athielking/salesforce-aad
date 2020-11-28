@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>athieking@gmail.com</contactEmail>
+    <label>SpaAPI</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com</callbackUrl>
+        <certificate>MIIE/jCCAuagAwIBAgIJALWrZs6kTt7VMA0GCSqGSIb3DQEBCwUAMBQxEjAQBgNVBAMMCWxvY2FsaG9zdDAeFw0yMDExMjgxMTM3MTRaFw0yMjA3MjExMTM3MTRaMBQxEjAQBgNVBAMMCWxvY2FsaG9zdDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALCSw4VXiVnr+O2k/lvPjc00vGv57DwGJxhQ5Fgk3GYaADvg2C3lGIhFx/izvcFnokb7c9heaxEpLdHOwEVqJSz0x+4RbSx0b2GDE2ip74o0ARgBdrkEu9j4C0Kym1ZVWDNoBSlzKVfoXfQejNdE2U5aE1NOvAsBydX0C1hqL87GbP0r+vy8mXFvDc+eaoNIzreY6woDOvnnMWUKEykyOU+1T1EhJIDV6P0z1LI6B2rzjLRqRDDEgMBUlXXRTcyaDQD0Wm6c1JIU4EehjasSlmiVHTIVs6lGV1Vn/v8wSXp/Z8CI/TQpb+SyZ15+bNyAVObQgmVwD6Ugnpo6CLoXgehJxCsK+mG3JfzSwd920tWIxo6euekhXOZb7wahjafHsPfR/Be8TKTkpmGXu4NxjMuBy0pL0bg3YNuhzqHOIYnjzeFhPwOF0zctXBtWjCKQnfcxDGIbphg49BgqAEv/AYRzU4+jvM/W7M8ui+kGnEuZivmVsWmUTuxp4OG/aSYf/r4qXI+Ds8626I16jvJlKs0ym2Z72y1u2DBDlfgFdYu66k+VymcW03kvDWVeCltN7UNMpEHLOfPPcDdGmMhDiaiMhidghbgbxykRlSxQ+ErlOSI6FJMiTqltAY/FOxsWE2XReuO+vnksmhra1W7OzbL+d+l/omQiQHZabasvBuYrAgMBAAGjUzBRMB0GA1UdDgQWBBQNNvWiy5XHFgKrSkk+xHZ0EdcuwTAfBgNVHSMEGDAWgBQNNvWiy5XHFgKrSkk+xHZ0EdcuwTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4ICAQAfOdyHG7tSiWT5icPaPeVaHyuD+tZHBzUbEfktNxbz60VmQzzqj8qdt5T7GSdD08p8BvOQObNY3UmdnJyut1aNOlkzwleVYrRl77xfLsEc172cqqnvlqeBaCYuWieoKe29efzFthIcCHFD/gGOgs2sKtPXGerE7Nr7F2YN/xJRaZDrjn4qdWbuUrzWxsBsgtZlISUCruWgfHp2YaCRu5oFf6xBJOuoz0rmlX8nOjIpIUperwCqpvAbaeNfym8PaCn874kwW/s9gePodzd8pac+DMFHb2199vqYPtHrQMkbftJ94SRkNi1d9rAou9hdOlMvPN6l+yc2iVDzGrxgFBPEnArYV8b42+s9jmElgk5XkkZSRTlkE46J51+8qhsLRJ9EtdBXxcK7VfuiTYX1YkMreXVdLQwCuRU0/c/yhn06vVePkdFCOMkAZ8sc39FHCCHxL9xD2+wjTTEM4IMxK8fK/RDSiR4QKOVLmya3m+9LbSobhMIGbxdbIf679yPxqQyd/dM/vXhYqEwo911nttlVjMY2ylSi7R1W6YlpozVpDDgeENWr/JeUAMKqAMHc9AbHMVXOdFYZ84n2+rCSOMkeD9Zy3ym5UtlKVAl+xrzoGFEWHpupu+QE8rZN3FA7vP1LUF6IoGSNEpQwIB6JNuxjSI327MaPF+CnJYR8ETd5KQ==</certificate>
+        <consumerKey>3MVG9U_dUptXGpYIIqvkU601Gn7R_E7hsRYvc8_YiCCuMdiIlNrO54zG7DzD9vovS6bcSmgst1PxE09qpaMSG</consumerKey>
+        <isAdminApproved>true</isAdminApproved>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+    <profileName>Standard User</profileName>
+</ConnectedApp>
