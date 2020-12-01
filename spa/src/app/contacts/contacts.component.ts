@@ -21,14 +21,26 @@ export class ContactsComponent implements OnInit {
   getContacts() {
     this.http.get('https://localhost:44309/api/contact')
       .subscribe({
-        next: (contacts: any) => this.contacts = (<any[]>contacts.results).map( x => <Contact>{Id: x.Id, Name: x.Name}),
+        next: (contacts: any) => {
+          if(Array.isArray(contacts)){
+            this.contacts = (<any[]>contacts).map( x => <Contact>{Id: x.sfid, Name: x.name} )
+          } else {
+            this.contacts = (<any[]>contacts.results).map( x => <Contact>{Id: x.Id, Name: x.Name});
+          }
+        },
         error: (err: AuthError) => {
           if(InteractionRequiredAuthError.isInteractionRequiredError(err.errorCode)) {
             this.authService.acquireTokenPopup({
               scopes: this.authService.getScopesForEndpoint('https://localhost:44309/api/contact')
             }).then(() => {
               this.http.get('https://localhost:44309/api/contact').toPromise()
-                .then((contacts: any) => this.contacts = (<any[]>contacts.results).map( x => <Contact>{Id: x.Id, Name: x.Name}));
+                .then((contacts: any) => {
+                  if(Array.isArray(contacts)){
+                    this.contacts = (<any[]>contacts).map( x => <Contact>{Id: x.sfid, Name: x.name} )
+                  } else {
+                    this.contacts = (<any[]>contacts.results).map( x => <Contact>{Id: x.Id, Name: x.Name});
+                  }
+                });
             });
           }
         }

@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -22,11 +23,14 @@ namespace SpaApi.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
-        private IConfiguration _config;
+        private SalesforceSettings _config;
         private static HttpClient http = new HttpClient { BaseAddress = new Uri("https://ability-enterprise-9701-dev-ed.cs68.my.salesforce.com/services/") };
-        public ContactController(IConfiguration config)
+        private readonly SalesforceDbContext _dbContext;
+
+        public ContactController(IOptions<SalesforceSettings> config, SalesforceDbContext dbContext)
         {
-            _config = config;
+            _config = config.Value;
+            _dbContext = dbContext;
         }
 
         //[HttpGet]
@@ -60,23 +64,30 @@ namespace SpaApi.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var jwt = GenerateJwtToken(User);
-
-            var formUrlContent = new FormUrlEncodedContent(new Dictionary<string, string> 
+            if (_config.UseApi)
             {
-                {"grant_type", "urn:ietf:params:oauth:grant-type:jwt-bearer" },
-                {"assertion", jwt }
-            });
-            
-            var tokenResp = await http.PostAsync("oauth2/token", formUrlContent);
+                var jwt = GenerateJwtToken(User);
 
-            var contentStr = await tokenResp.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<JObject>(contentStr);
+                var formUrlContent = new FormUrlEncodedContent(new Dictionary<string, string>
+                {
+                    {"grant_type", "urn:ietf:params:oauth:grant-type:jwt-bearer" },
+                    {"assertion", jwt }
+                });
 
-            http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Convert.ToString(result["access_token"]));
-            var contactResp = await http.GetAsync("apexrest/contacts");
+                var tokenResp = await http.PostAsync("oauth2/token", formUrlContent);
 
-            return Ok(await contactResp.Content.ReadAsStringAsync());
+                var contentStr = await tokenResp.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<JObject>(contentStr);
+
+                http.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Convert.ToString(result["access_token"]));
+                var contactResp = await http.GetAsync("apexrest/contacts");
+
+                return Ok(await contactResp.Content.ReadAsStringAsync());
+            }
+
+            var contacts = _dbContext.Contacts.ToList();
+            return Ok(contacts);
+
         }
 
         private string GenerateJwtToken(ClaimsPrincipal user)

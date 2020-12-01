@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.Identity.Web;
 
 namespace SpaApi
@@ -29,6 +30,23 @@ namespace SpaApi
             services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
             services.AddControllers();
             services.AddCors();
+            services.AddMemoryCache();
+
+            services.AddEntityFrameworkNpgsql()
+                .AddDbContext<SalesforceDbContext>();
+
+            services.Configure<HerokuSettings>(options => Configuration.GetSection("Heroku").Bind(options));
+            services.Configure<SalesforceSettings>(options => Configuration.GetSection("Salesforce").Bind(options));
+
+            services.AddHttpClient<HerokuClient>((provider, client) =>
+            {
+                var options = provider.GetRequiredService<IOptions<HerokuSettings>>();
+                client.BaseAddress = new Uri(options.Value.ConfigUri);
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", options.Value.AccessToken);
+                client.DefaultRequestHeaders.Add("Accept", "application/vnd.heroku+json; version=3");
+            });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
