@@ -19,11 +19,11 @@ export class ContactsComponent implements OnInit {
   }
 
   getContacts() {
-    this.http.get('https://localhost:44309/api/contact')
+    this.http.get('https://localhost/SpaApi/api/contact')
       .subscribe({
         next: (contacts: any) => {
           if(Array.isArray(contacts)){
-            this.contacts = (<any[]>contacts).map( x => <Contact>{Id: x.sfid, Name: x.name} )
+            this.contacts = (<any[]>contacts).map( x => <Contact>{Id: x.hasOwnProperty("Id") ? x.Id : x.sfid, Name: x.hasOwnProperty("Name") ? x.Name: x.name} )
           } else {
             this.contacts = (<any[]>contacts.results).map( x => <Contact>{Id: x.Id, Name: x.Name});
           }
@@ -31,12 +31,12 @@ export class ContactsComponent implements OnInit {
         error: (err: AuthError) => {
           if(InteractionRequiredAuthError.isInteractionRequiredError(err.errorCode)) {
             this.authService.acquireTokenPopup({
-              scopes: this.authService.getScopesForEndpoint('https://localhost:44309/api/contact')
+              scopes: this.authService.getScopesForEndpoint('https://localhost/SpaApi/api/contact')
             }).then(() => {
-              this.http.get('https://localhost:44309/api/contact').toPromise()
+              this.http.get('https://localhost/SpaApi/api/contact').toPromise()
                 .then((contacts: any) => {
                   if(Array.isArray(contacts)){
-                    this.contacts = (<any[]>contacts).map( x => <Contact>{Id: x.sfid, Name: x.name} )
+                    this.contacts = (<any[]>contacts).map( x => <Contact>{Id: x.hasOwnProperty("Id") ? x.Id : x.sfid, Name: x.hasOwnProperty("Name") ? x.Name: x.name} )
                   } else {
                     this.contacts = (<any[]>contacts.results).map( x => <Contact>{Id: x.Id, Name: x.Name});
                   }
