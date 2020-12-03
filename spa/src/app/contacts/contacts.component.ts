@@ -19,7 +19,7 @@ export class ContactsComponent implements OnInit {
   }
 
   getContacts() {
-    this.http.get('https://localhost/SpaApi/api/contact')
+    this.http.get('https://localhost:44309/api/contact')
       .subscribe({
         next: (contacts: any) => {
           if(Array.isArray(contacts)){

@@ -1,0 +1,26 @@
+﻿@model WebApp.Models.ContactsViewModel
+
+@{
+    ViewBag.Title = "Contacts";
+}
+
+<h2>Salesforce Contacts</h2>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var contact in Model.Contacts) {
+    <tr>
+        <td>
+            <b>@contact.Id</b>
+        </td>
+        <td>
+            @contact.Name
+        </td>
+    </tr>
+}
+
+</table>
