@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://login.microsoftonline.com/086c5b2d-4ac7-4e86-8f49-ac41b36aa6f6/oauth2/v2.0/authorize</authorizeUrl>
+    <consumerKey>0e247326-e678-4f13-a3a2-52b09c04abff</consumerKey>
+    <consumerSecret>3NKvt8ARfbeAshHD5hvQL81Jh3XLsW2lCLfUCW3ekCN63L7rf9ACVg==</consumerSecret>
+    <defaultScopes>api://bc60f2f9-d6e0-4a06-8114-53c3c8bc1104/user_delegation</defaultScopes>
+    <friendlyName>Azure AD</friendlyName>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <providerType>MicrosoftACS</providerType>
+    <sendAccessTokenInHeader>false</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://login.microsoftonline.com/086c5b2d-4ac7-4e86-8f49-ac41b36aa6f6/oauth2/v2.0/token</tokenUrl>
+</AuthProvider>
