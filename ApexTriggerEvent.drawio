@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net" modified="2021-01-03T10:33:34.038Z" agent="5.0 (Windows)" etag="5kWtFnieY3shJA-0lEGD" version="14.1.8" type="github">
+  <diagram id="1p904DRUSOk9_n-IS_4u" name="Page-1">
+    <mxGraphModel dx="2062" dy="1124" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-1" value="&lt;div&gt;Azure &lt;br&gt;&lt;/div&gt;&lt;div&gt;Event Topic&lt;/div&gt;" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/integration/Event_Grid_Topics.svg;" parent="1" vertex="1">
+          <mxGeometry x="283" y="254" width="67" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-5" value="GS Web Service" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/App_Services.svg;labelPosition=center;verticalLabelPosition=top;verticalAlign=bottom;" parent="1" vertex="1">
+          <mxGeometry x="526" y="90" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-6" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/App_Services.svg;" parent="1" vertex="1">
+          <mxGeometry x="526" y="252" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-7" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/compute/App_Services.svg;" parent="1" vertex="1">
+          <mxGeometry x="526" y="410" width="64" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.06;entryY=0.467;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="SHI-ktM-hE5Mo1x6OOOh-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="282" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-17" value="Azure Event" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="SHI-ktM-hE5Mo1x6OOOh-15" vertex="1" connectable="0">
+          <mxGeometry x="0.1491" y="1" relative="1" as="geometry">
+            <mxPoint x="-21" y="-1.01" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-9" value="Salesforce Apex Trigger" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F8%2F83%2FSalesforce_logo.svg%2F1200px-Salesforce_logo.svg.png&amp;f=1&amp;nofb=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="252" width="91.42" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-20" value="" style="endArrow=classic;startArrow=classic;html=1;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="366" y="283.5" as="sourcePoint" />
+            <mxPoint x="516" y="283.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-21" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=-0.047;entryY=0.641;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="SHI-ktM-hE5Mo1x6OOOh-5" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="356" y="250" as="sourcePoint" />
+            <mxPoint x="456" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-24" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=-0.047;entryY=0.156;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="SHI-ktM-hE5Mo1x6OOOh-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="356" y="320" as="sourcePoint" />
+            <mxPoint x="446" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-25" value="Web services receive events from Salesforce through subscriptions to the Event Topic.&amp;nbsp; " style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="190" width="243" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-26" value="They can also publish events to the Event Topic for other Web Services to subscribe to" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="436.5" y="330" width="243" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-27" value="" style="endArrow=none;dashed=1;html=1;fontColor=#058AFF;strokeColor=#058AFF;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="240" y="520" as="sourcePoint" />
+            <mxPoint x="240" y="20" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-28" value="GreenStone Infrastructure" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="250" y="20" width="171.3" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
