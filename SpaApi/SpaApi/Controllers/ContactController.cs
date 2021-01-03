@@ -24,7 +24,7 @@ namespace SpaApi.Controllers
     public class ContactController : ControllerBase
     {
         private SalesforceSettings _config;
-        private static HttpClient http = new HttpClient { BaseAddress = new Uri("https://ability-enterprise-9701-dev-ed.cs68.my.salesforce.com/services/") };
+        private static HttpClient http = new HttpClient { BaseAddress = new Uri("https://501software-dev-ed.my.salesforce.com/services/") };
         private readonly SalesforceDbContext _dbContext;
 
         public ContactController(IOptions<SalesforceSettings> config, SalesforceDbContext dbContext)
@@ -102,9 +102,9 @@ namespace SpaApi.Controllers
             var expires = DateTime.UtcNow.AddMinutes(3);
 
             var token = new JwtSecurityToken(
-                issuer: "3MVG9U_dUptXGpYIIqvkU601Gn7R_E7hsRYvc8_YiCCuMdiIlNrO54zG7DzD9vovS6bcSmgst1PxE09qpaMSG",
-                //issuer: "3MVG9l2zHsylwlpTGlLcDC3b.xHPxfs.Q6QyHhdWKE8_xgBvPze4ETY7VKGCOj30od6oXv1nRDQBzO3KiXmb8",
-                audience: "https://test.salesforce.com",
+                //issuer: "3MVG9U_dUptXGpYIIqvkU601Gn7R_E7hsRYvc8_YiCCuMdiIlNrO54zG7DzD9vovS6bcSmgst1PxE09qpaMSG",
+                issuer: "3MVG9l2zHsylwlpTGlLcDC3b.xHPxfs.Q6QyHhdWKE8_xgBvPze4ETY7VKGCOj30od6oXv1nRDQBzO3KiXmb8",
+                audience: "https://login.salesforce.com",
                 claims,
                 expires: DateTime.UtcNow.AddMinutes(3),
                 signingCredentials: creds
