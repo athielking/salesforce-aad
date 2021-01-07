@@ -6,6 +6,9 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Security.KeyVault.Certificates;
+using Azure.Security.KeyVault.Secrets;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,13 +27,25 @@ namespace SpaApi.Controllers
     public class ContactController : ControllerBase
     {
         private SalesforceSettings _config;
+        private AzureADSettings _adSettings;
         private static HttpClient http = new HttpClient { BaseAddress = new Uri("https://501software-dev-ed.my.salesforce.com/services/") };
+        private readonly CertificateClient _kvClient;
+        private readonly SecretClient _secretClient;
         private readonly SalesforceDbContext _dbContext;
 
-        public ContactController(IOptions<SalesforceSettings> config, SalesforceDbContext dbContext)
+        public ContactController(IOptions<SalesforceSettings> config, IOptions<AzureADSettings> adSettings, SalesforceDbContext dbContext)
         {
             _config = config.Value;
+            _adSettings = adSettings.Value;
+
             _dbContext = dbContext;
+            _kvClient = new CertificateClient(
+                new Uri("https://astsalesforcekeyvault.vault.azure.net/"), 
+                new ClientSecretCredential(_adSettings.TenantId, _adSettings.ClientId, _adSettings.ClientSecret));
+
+            _secretClient = new SecretClient(
+                new Uri("https://astsalesforcekeyvault.vault.azure.net/"),
+                new ClientSecretCredential(_adSettings.TenantId, _adSettings.ClientId, _adSettings.ClientSecret));
         }
 
         //[HttpGet]
@@ -66,7 +81,7 @@ namespace SpaApi.Controllers
         {
             if (_config.UseApi)
             {
-                var jwt = GenerateJwtToken(User);
+                var jwt = await GenerateJwtToken(User);
 
                 var formUrlContent = new FormUrlEncodedContent(new Dictionary<string, string>
                 {
@@ -90,14 +105,19 @@ namespace SpaApi.Controllers
 
         }
 
-        private string GenerateJwtToken(ClaimsPrincipal user)
+        private async Task<string> GenerateJwtToken(ClaimsPrincipal user)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Identity.Name),
             };
 
-            var cert = new X509Certificate2("C:/Users/athie/salesforce.pfx", String.Empty);
+            //Load private key from key vault
+            var secret = await _secretClient.GetSecretAsync("Salesforce");
+            var base64EncodedBytes = System.Convert.FromBase64String(secret.Value.Value);
+
+            //var cert = new X509Certificate2("C:/Users/athie/salesforce.pfx", String.Empty);
+            var cert = new X509Certificate2(base64EncodedBytes, String.Empty);
             var creds = new X509SigningCredentials(cert, SecurityAlgorithms.RsaSha256);
             var expires = DateTime.UtcNow.AddMinutes(3);
 

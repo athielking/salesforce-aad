@@ -4,8 +4,10 @@
  */
 package com.salesforce.emp.connector.example;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.net.*;
 import java.net.http.HttpClient;
@@ -19,6 +21,11 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
+import com.azure.identity.ClientSecretCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.azure.eventgrid.EventGridClient;
@@ -43,7 +50,19 @@ public class BearerTokenExample {
     private static final EventGridClient eventGridClient = new EventGridClientImpl(topicCredentials);
     private static final String TopicEndpoint = "https://contact-insert-update.eastus2-1.eventgrid.azure.net";
 
+    private static final ClientSecretCredential credential = new ClientSecretCredentialBuilder()
+            .tenantId("086c5b2d-4ac7-4e86-8f49-ac41b36aa6f6")
+            .clientId("bc60f2f9-d6e0-4a06-8114-53c3c8bc1104")
+            .clientSecret("pqoq8-Qrjil_rB0_yUnK6_ZHvjE8Q148CE")
+            .build();
+
+    private static final SecretClient secretClient = new SecretClientBuilder()
+            .vaultUrl("https://astsalesforcekeyvault.vault.azure.net/")
+            .credential(credential)
+            .buildClient();
+
     public static void main(String[] argv) throws Exception {
+
 
         long replayFrom = EmpConnector.REPLAY_FROM_TIP;
         String token = getBearerToken(createJWT());
@@ -125,7 +144,12 @@ public class BearerTokenExample {
         token.append(Base64.getUrlEncoder().encodeToString(payload.getBytes(StandardCharsets.UTF_8)));
 
         KeyStore ks = KeyStore.getInstance("pkcs12", "SunJSSE");
-        ks.load(new FileInputStream("C:/Users/athie/salesforce.pfx"), new char[0]);
+        KeyVaultSecret secret = secretClient.getSecret("Salesforce");
+        byte[] certBytes = Base64.getDecoder().decode(secret.getValue());
+
+        //ks.load(new FileInputStream("C:/Users/athie/salesforce.pfx"), new char[0]);
+        InputStream stream = new ByteArrayInputStream(certBytes);
+        ks.load(stream, new char[0]);
 
         String alias = ks.aliases().nextElement();
         PrivateKey pk = (PrivateKey)ks.getKey(alias, new char[0]);
