@@ -1,0 +1,84 @@
+<mxfile host="app.diagrams.net" modified="2021-01-09T18:40:38.697Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66" etag="3g1JEwXLKnk4nJcm4vWW" version="14.1.8" type="github">
+  <diagram id="1p904DRUSOk9_n-IS_4u" name="Page-1">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-20" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fillColor=none;strokeColor=#B624FF;" vertex="1" parent="1">
+          <mxGeometry x="420" y="180" width="190" height="171" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-19" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fillColor=none;strokeColor=#136B96;" vertex="1" parent="1">
+          <mxGeometry x="480" y="241" width="130" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-12" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fillColor=none;strokeColor=#21B5FF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="111" width="220" height="289" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-8" value="Streaming API&lt;br&gt;Impletments cometD Server" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/integration/API_Management_Services.svg;strokeColor=#8D36FF;strokeWidth=3;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="124.23" y="288" width="65" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-1" value="&lt;div&gt;Azure &lt;br&gt;&lt;/div&gt;&lt;div&gt;Event Topic&lt;/div&gt;" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/integration/Event_Grid_Topics.svg;" parent="1" vertex="1">
+          <mxGeometry x="770" y="240" width="67" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-8" value="CometD Java Client" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.vhqpostsg.com%2Fcometd%2FcometdLogo.png&amp;f=1&amp;nofb=1;" parent="1" vertex="1">
+          <mxGeometry x="501.05" y="271" width="92.6" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-27" value="" style="endArrow=none;dashed=1;html=1;fontColor=#058AFF;strokeColor=#058AFF;strokeWidth=3;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="350" y="410" as="sourcePoint" />
+            <mxPoint x="350" y="5.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-28" value="GreenStone Azure Tenant" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+          <mxGeometry x="400" y="20" width="171.3" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SHI-ktM-hE5Mo1x6OOOh-9" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F8%2F83%2FSalesforce_logo.svg%2F1200px-Salesforce_logo.svg.png&amp;f=1&amp;nofb=1;" parent="1" vertex="1">
+          <mxGeometry x="64" y="70" width="91.42" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-2" value="Event Bus" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=3;direction=north;strokeColor=#6c8ebf;fillColor=#dae8fc;" vertex="1" parent="1">
+          <mxGeometry x="104" y="160" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-3" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;image=https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.vhqpostsg.com%2Fcometd%2FcometdLogo.png&amp;f=1&amp;nofb=1;" vertex="1" parent="1">
+          <mxGeometry x="114" y="240" width="85.47" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-5" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/mscae/Docker.svg;strokeColor=#8D36FF;strokeWidth=3;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="490" y="230" width="50" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-10" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="9GGa9re0MsrtyDnr-Xyq-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="564" y="400" as="sourcePoint" />
+            <mxPoint x="124" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="74" y="180" />
+              <mxPoint x="74" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-11" value="Platform Events&amp;nbsp;&lt;br&gt;Change Data Capture" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9GGa9re0MsrtyDnr-Xyq-10">
+          <mxGeometry x="-0.2727" y="2" relative="1" as="geometry">
+            <mxPoint x="28" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-13" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="9GGa9re0MsrtyDnr-Xyq-8" target="9GGa9re0MsrtyDnr-Xyq-19">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="380" y="370" as="sourcePoint" />
+            <mxPoint x="430" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-16" value="Published Event" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="9GGa9re0MsrtyDnr-Xyq-13">
+          <mxGeometry x="-0.1877" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-17" value="Salesforce Infrastructure" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="171.3" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-18" value="" style="aspect=fixed;html=1;points=[];align=center;image;fontSize=12;image=img/lib/azure2/containers/Container_Instances.svg;strokeColor=#21B5FF;strokeWidth=3;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="540" y="134" width="64.93" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="9GGa9re0MsrtyDnr-Xyq-22" value="Azure Container Instance" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="425.65" y="193" width="120" height="11" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
