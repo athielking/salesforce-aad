@@ -37,6 +37,7 @@ namespace SpaApi
 
             services.Configure<HerokuSettings>(options => Configuration.GetSection("Heroku").Bind(options));
             services.Configure<SalesforceSettings>(options => Configuration.GetSection("Salesforce").Bind(options));
+            services.Configure<AzureADSettings>(options => Configuration.GetSection("AzureAd").Bind(options));
 
             services.AddHttpClient<HerokuClient>((provider, client) =>
             {
