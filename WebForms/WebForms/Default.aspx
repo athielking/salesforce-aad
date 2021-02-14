@@ -39,4 +39,13 @@
         </div>
     </div>
 
+    <dl> 
+        <dt>IsAuthenticated</dt> 
+        <dd><%= HttpContext.Current.User.Identity.IsAuthenticated %></dd> 
+        <dt>AuthenticationType</dt> 
+        <dd><%= HttpContext.Current.User.Identity.AuthenticationType %></dd> 
+        <dt>Name</dt> 
+        <dd><%= HttpContext.Current.User.Identity.Name %></dd> 
+    </dl>
+
 </asp:Content>
