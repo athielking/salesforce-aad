@@ -1,0 +1,10 @@
+{
+	"name": "SFDataFactoryKVService",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://GS-SFDatafactoryKV.vault.azure.net/"
+		}
+	}
+}
