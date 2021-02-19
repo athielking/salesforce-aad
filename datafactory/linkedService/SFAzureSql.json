@@ -1,0 +1,28 @@
+{
+	"name": "SFAzureSql",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "SFDataFactoryKVService",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "SqlConnectionString"
+			},
+			"servicePrincipalId": "df7a1305-9e86-4104-8c7b-92466320bda9",
+			"servicePrincipalKey": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "SFDataFactoryKVService",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "DataFactoryServicePrincipal"
+			},
+			"tenant": "0a89e349-f59c-4573-a0eb-fc6ee6ce472f",
+			"azureCloudType": "AzurePublic"
+		}
+	}
+}
