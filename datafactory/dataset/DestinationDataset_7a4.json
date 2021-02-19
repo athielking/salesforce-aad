@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_7a4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SFAzureSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Contact"
+		}
+	}
+}
