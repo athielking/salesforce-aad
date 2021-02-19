@@ -1,0 +1,12 @@
+{
+	"name": "AzContact",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SFAzureSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}

@@ -44,7 +44,8 @@
 								},
 								"sink": {
 									"name": "Id",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -54,7 +55,8 @@
 								},
 								"sink": {
 									"name": "IsDeleted",
-									"type": "Boolean"
+									"type": "Boolean",
+									"physicalType": "bit"
 								}
 							},
 							{
@@ -64,7 +66,8 @@
 								},
 								"sink": {
 									"name": "MasterRecordId",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -74,7 +77,8 @@
 								},
 								"sink": {
 									"name": "AccountId",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -84,7 +88,8 @@
 								},
 								"sink": {
 									"name": "LastName",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -94,7 +99,8 @@
 								},
 								"sink": {
 									"name": "FirstName",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -104,7 +110,8 @@
 								},
 								"sink": {
 									"name": "Salutation",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -114,7 +121,8 @@
 								},
 								"sink": {
 									"name": "Name",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -124,7 +132,8 @@
 								},
 								"sink": {
 									"name": "OtherStreet",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -134,7 +143,8 @@
 								},
 								"sink": {
 									"name": "OtherCity",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -144,7 +154,8 @@
 								},
 								"sink": {
 									"name": "OtherState",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -154,7 +165,8 @@
 								},
 								"sink": {
 									"name": "OtherPostalCode",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -164,7 +176,8 @@
 								},
 								"sink": {
 									"name": "OtherCountry",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -174,7 +187,10 @@
 								},
 								"sink": {
 									"name": "OtherLatitude",
-									"type": "Decimal"
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 15,
+									"precision": 18
 								}
 							},
 							{
@@ -184,7 +200,10 @@
 								},
 								"sink": {
 									"name": "OtherLongitude",
-									"type": "Decimal"
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 15,
+									"precision": 18
 								}
 							},
 							{
@@ -194,7 +213,8 @@
 								},
 								"sink": {
 									"name": "OtherGeocodeAccuracy",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -204,7 +224,8 @@
 								},
 								"sink": {
 									"name": "MailingStreet",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -214,7 +235,8 @@
 								},
 								"sink": {
 									"name": "MailingCity",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -224,7 +246,8 @@
 								},
 								"sink": {
 									"name": "MailingState",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -234,7 +257,8 @@
 								},
 								"sink": {
 									"name": "MailingPostalCode",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -244,7 +268,8 @@
 								},
 								"sink": {
 									"name": "MailingCountry",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -254,7 +279,10 @@
 								},
 								"sink": {
 									"name": "MailingLatitude",
-									"type": "Decimal"
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 15,
+									"precision": 18
 								}
 							},
 							{
@@ -264,7 +292,10 @@
 								},
 								"sink": {
 									"name": "MailingLongitude",
-									"type": "Decimal"
+									"type": "Decimal",
+									"physicalType": "decimal",
+									"scale": 15,
+									"precision": 18
 								}
 							},
 							{
@@ -274,7 +305,8 @@
 								},
 								"sink": {
 									"name": "MailingGeocodeAccuracy",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -284,7 +316,8 @@
 								},
 								"sink": {
 									"name": "Phone",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -294,7 +327,8 @@
 								},
 								"sink": {
 									"name": "Fax",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -304,7 +338,8 @@
 								},
 								"sink": {
 									"name": "MobilePhone",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -314,7 +349,8 @@
 								},
 								"sink": {
 									"name": "HomePhone",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -324,7 +360,8 @@
 								},
 								"sink": {
 									"name": "OtherPhone",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -334,7 +371,8 @@
 								},
 								"sink": {
 									"name": "AssistantPhone",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -344,7 +382,8 @@
 								},
 								"sink": {
 									"name": "ReportsToId",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -354,7 +393,8 @@
 								},
 								"sink": {
 									"name": "Email",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -364,7 +404,8 @@
 								},
 								"sink": {
 									"name": "Title",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -374,7 +415,8 @@
 								},
 								"sink": {
 									"name": "Department",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -384,7 +426,8 @@
 								},
 								"sink": {
 									"name": "AssistantName",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -394,7 +437,8 @@
 								},
 								"sink": {
 									"name": "LeadSource",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -404,7 +448,8 @@
 								},
 								"sink": {
 									"name": "Birthdate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -414,7 +459,8 @@
 								},
 								"sink": {
 									"name": "Description",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -424,7 +470,8 @@
 								},
 								"sink": {
 									"name": "OwnerId",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -434,7 +481,8 @@
 								},
 								"sink": {
 									"name": "CreatedDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -444,7 +492,8 @@
 								},
 								"sink": {
 									"name": "CreatedById",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -454,7 +503,8 @@
 								},
 								"sink": {
 									"name": "LastModifiedDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -464,7 +514,8 @@
 								},
 								"sink": {
 									"name": "LastModifiedById",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -474,7 +525,8 @@
 								},
 								"sink": {
 									"name": "SystemModstamp",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -484,7 +536,8 @@
 								},
 								"sink": {
 									"name": "LastActivityDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -494,7 +547,8 @@
 								},
 								"sink": {
 									"name": "LastCURequestDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -504,7 +558,8 @@
 								},
 								"sink": {
 									"name": "LastCUUpdateDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -514,7 +569,8 @@
 								},
 								"sink": {
 									"name": "LastViewedDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -524,7 +580,8 @@
 								},
 								"sink": {
 									"name": "LastReferencedDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -534,7 +591,8 @@
 								},
 								"sink": {
 									"name": "EmailBouncedReason",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -544,7 +602,8 @@
 								},
 								"sink": {
 									"name": "EmailBouncedDate",
-									"type": "DateTime"
+									"type": "DateTime",
+									"physicalType": "datetime2"
 								}
 							},
 							{
@@ -554,7 +613,8 @@
 								},
 								"sink": {
 									"name": "IsEmailBounced",
-									"type": "Boolean"
+									"type": "Boolean",
+									"physicalType": "bit"
 								}
 							},
 							{
@@ -564,7 +624,8 @@
 								},
 								"sink": {
 									"name": "PhotoUrl",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -574,7 +635,8 @@
 								},
 								"sink": {
 									"name": "Jigsaw",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -584,7 +646,8 @@
 								},
 								"sink": {
 									"name": "JigsawContactId",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -594,7 +657,8 @@
 								},
 								"sink": {
 									"name": "CleanStatus",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -604,7 +668,8 @@
 								},
 								"sink": {
 									"name": "IndividualId",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -614,7 +679,8 @@
 								},
 								"sink": {
 									"name": "Level__c",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -624,7 +690,8 @@
 								},
 								"sink": {
 									"name": "Languages__c",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -634,7 +701,8 @@
 								},
 								"sink": {
 									"name": "TestLabel__c",
-									"type": "String"
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							}
 						],
@@ -647,13 +715,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_7a4",
+						"referenceName": "SFContact",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_7a4",
+						"referenceName": "AzContact",
 						"type": "DatasetReference"
 					}
 				]
