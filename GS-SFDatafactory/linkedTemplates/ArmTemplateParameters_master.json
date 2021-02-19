@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "GS-SFDatafactory"
+		},
+		"SFAzureSql_properties_typeProperties_connectionString_secretName": {
+			"value": "SqlConnectionString"
+		},
+		"SFAzureSql_properties_typeProperties_servicePrincipalId": {
+			"value": "df7a1305-9e86-4104-8c7b-92466320bda9"
+		},
+		"SFAzureSql_properties_typeProperties_tenant": {
+			"value": "0a89e349-f59c-4573-a0eb-fc6ee6ce472f"
+		},
+		"SFDataFactoryKVService_properties_typeProperties_baseUrl": {
+			"value": "https://GS-SFDatafactoryKV.vault.azure.net/"
+		},
+		"Salesforce1_properties_typeProperties_environmentUrl": {
+			"value": "https://login.salesforce.com"
+		},
+		"Salesforce1_properties_typeProperties_username": {
+			"value": "andrew.thielking@salesforce.com"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

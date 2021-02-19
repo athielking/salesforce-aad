@@ -1,0 +1,831 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "GS-SFDatafactory"
+		},
+		"SFAzureSql_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "SqlConnectionString"
+		},
+		"SFAzureSql_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "df7a1305-9e86-4104-8c7b-92466320bda9"
+		},
+		"SFAzureSql_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "0a89e349-f59c-4573-a0eb-fc6ee6ce472f"
+		},
+		"SFDataFactoryKVService_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://GS-SFDatafactoryKV.vault.azure.net/"
+		},
+		"Salesforce1_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://login.salesforce.com"
+		},
+		"Salesforce1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "andrew.thielking@salesforce.com"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/SFCopyData')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy_7a4",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [
+							{
+								"name": "Source",
+								"value": "Contact"
+							},
+							{
+								"name": "Destination",
+								"value": "dbo.Contact"
+							}
+						],
+						"typeProperties": {
+							"source": {
+								"type": "SalesforceSource",
+								"readBehavior": "query"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false,
+							"validateDataConsistency": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "Id",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IsDeleted",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "IsDeleted",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "MasterRecordId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MasterRecordId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AccountId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AccountId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LastName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LastName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "FirstName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "FirstName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Salutation",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Salutation",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Name",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Name",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherStreet",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherStreet",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherCity",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherCity",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherState",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherState",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherPostalCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherPostalCode",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherCountry",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherCountry",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherLatitude",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "OtherLatitude",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherLongitude",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "OtherLongitude",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherGeocodeAccuracy",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherGeocodeAccuracy",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingStreet",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MailingStreet",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingCity",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MailingCity",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingState",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MailingState",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingPostalCode",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MailingPostalCode",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingCountry",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MailingCountry",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingLatitude",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "MailingLatitude",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingLongitude",
+											"type": "Decimal"
+										},
+										"sink": {
+											"name": "MailingLongitude",
+											"type": "Decimal"
+										}
+									},
+									{
+										"source": {
+											"name": "MailingGeocodeAccuracy",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MailingGeocodeAccuracy",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Phone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Phone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Fax",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Fax",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "MobilePhone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "MobilePhone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "HomePhone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "HomePhone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OtherPhone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OtherPhone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AssistantPhone",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AssistantPhone",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "ReportsToId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "ReportsToId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Email",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Email",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Title",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Title",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Department",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Department",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "AssistantName",
+											"type": "String"
+										},
+										"sink": {
+											"name": "AssistantName",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LeadSource",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LeadSource",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Birthdate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "Birthdate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "Description",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Description",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "OwnerId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "OwnerId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CreatedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "CreatedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "CreatedById",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CreatedById",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "LastModifiedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastModifiedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastModifiedById",
+											"type": "String"
+										},
+										"sink": {
+											"name": "LastModifiedById",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "SystemModstamp",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "SystemModstamp",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastActivityDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastActivityDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastCURequestDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastCURequestDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastCUUpdateDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastCUUpdateDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastViewedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastViewedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "LastReferencedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "LastReferencedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "EmailBouncedReason",
+											"type": "String"
+										},
+										"sink": {
+											"name": "EmailBouncedReason",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "EmailBouncedDate",
+											"type": "DateTime"
+										},
+										"sink": {
+											"name": "EmailBouncedDate",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"name": "IsEmailBounced",
+											"type": "Boolean"
+										},
+										"sink": {
+											"name": "IsEmailBounced",
+											"type": "Boolean"
+										}
+									},
+									{
+										"source": {
+											"name": "PhotoUrl",
+											"type": "String"
+										},
+										"sink": {
+											"name": "PhotoUrl",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Jigsaw",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Jigsaw",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "JigsawContactId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "JigsawContactId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "CleanStatus",
+											"type": "String"
+										},
+										"sink": {
+											"name": "CleanStatus",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "IndividualId",
+											"type": "String"
+										},
+										"sink": {
+											"name": "IndividualId",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Level__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Level__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "Languages__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "Languages__c",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"name": "TestLabel__c",
+											"type": "String"
+										},
+										"sink": {
+											"name": "TestLabel__c",
+											"type": "String"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "SourceDataset_7a4",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DestinationDataset_7a4",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SourceDataset_7a4')]",
+				"[concat(variables('factoryId'), '/datasets/DestinationDataset_7a4')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DestinationDataset_7a4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SFAzureSql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Contact"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SFAzureSql')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SourceDataset_7a4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "Salesforce1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SalesforceObject",
+				"schema": [],
+				"typeProperties": {
+					"objectApiName": "Contact"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Salesforce1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SFAzureSql')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "SFDataFactoryKVService",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "[parameters('SFAzureSql_properties_typeProperties_connectionString_secretName')]"
+					},
+					"servicePrincipalId": "[parameters('SFAzureSql_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalKey": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "SFDataFactoryKVService",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "DataFactoryServicePrincipal"
+					},
+					"tenant": "[parameters('SFAzureSql_properties_typeProperties_tenant')]",
+					"azureCloudType": "AzurePublic"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SFDataFactoryKVService')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SFDataFactoryKVService')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('SFDataFactoryKVService_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Salesforce1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "Salesforce",
+				"typeProperties": {
+					"environmentUrl": "[parameters('Salesforce1_properties_typeProperties_environmentUrl')]",
+					"username": "[parameters('Salesforce1_properties_typeProperties_username')]",
+					"password": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "SFDataFactoryKVService",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "SalesforcePassword"
+					},
+					"securityToken": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "SFDataFactoryKVService",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "SalesforceSecurityToken"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/SFDataFactoryKVService')]"
+			]
+		}
+	]
+}

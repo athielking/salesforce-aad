@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "GS-SFDatafactory"
+		},
+		"SFAzureSql_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "SqlConnectionString"
+		},
+		"SFAzureSql_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "df7a1305-9e86-4104-8c7b-92466320bda9"
+		},
+		"SFAzureSql_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "0a89e349-f59c-4573-a0eb-fc6ee6ce472f"
+		},
+		"SFDataFactoryKVService_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://GS-SFDatafactoryKV.vault.azure.net/"
+		},
+		"Salesforce1_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://login.salesforce.com"
+		},
+		"Salesforce1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "andrew.thielking@salesforce.com"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "GS-SFDatafactory_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SFDataFactoryKVService_properties_typeProperties_baseUrl": {
+						"value": "[parameters('SFDataFactoryKVService_properties_typeProperties_baseUrl')]"
+					},
+					"SFAzureSql_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('SFAzureSql_properties_typeProperties_connectionString_secretName')]"
+					},
+					"SFAzureSql_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('SFAzureSql_properties_typeProperties_servicePrincipalId')]"
+					},
+					"SFAzureSql_properties_typeProperties_tenant": {
+						"value": "[parameters('SFAzureSql_properties_typeProperties_tenant')]"
+					},
+					"Salesforce1_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce1_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce1_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce1_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
