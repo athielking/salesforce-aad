@@ -1,0 +1,16 @@
+{
+	"name": "AzAccount",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SFAzureSql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Account"
+		}
+	}
+}
